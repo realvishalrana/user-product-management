@@ -24,16 +24,8 @@ const getProduct = async (req, res, next) => {
 
     if (req.query?.search) {
       queryObj.$or = [
-        {
-          category: {
-            $regex: req.query?.search,
-            $options: "i",
-          },
-          name: {
-            $regex: req.query?.search,
-            $options: "i",
-          },
-        },
+        { category: { $regex: req.query.search, $options: "i" } },
+        { name: { $regex: req.query.search, $options: "i" } },
       ];
     }
 
